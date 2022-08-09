@@ -1,19 +1,46 @@
-import React from "react";
-import { Route, Switch, useRouteMatch, useEffect } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { listDecks } from "../utils/api";
-function DeckList() {
-  const [decks, setDecks] = useState();
+function DeckList({ decks }) {
+  const [deck, setDeck] = useState();
   useEffect(() => {
     async function getDecks() {
       const dataFromAPI = await listDecks();
-      setDecks(dataFromAPI);
+      setDeck(dataFromAPI);
     }
     getDecks();
   }, []);
+  const list = DeckList.map(({ name, description }, index) => (
+    <tr key={index}>
+      <td>{name}</td>
+      <td>{description}</td>
+    </tr>
+  ));
+
   return (
-    <Switch>
-      <Route exact Path=""></Route>
-    </Switch>
+    <div>
+      <table>
+        <thread>
+          <tr>Deck List</tr>
+        </thread>
+        <tbody>{}</tbody>
+      </table>
+    </div>
   );
 }
 export default DeckList;
+
+// const list = DeckList.map(({ name, description }, index) => (
+//     <tr key={index}>
+//       <td>{name}</td>
+//       <td>{description}</td>
+//     </tr>
+//   ));
+
+//   return (
+//     <table>
+//       <thread>
+//         <tr>Deck List</tr>
+//       </thread>
+//       <tbody>{list}</tbody>
+//     </table>
+//   );
