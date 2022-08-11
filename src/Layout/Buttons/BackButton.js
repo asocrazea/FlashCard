@@ -1,11 +1,13 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-function HomeButton() {
+
+function BackButton() {
   const history = useHistory();
   return (
-    <button type="button" onClick={() => history.push("/")}>
-      Home
+    <button type="button" onClick={() => history.goBack()}>
+      {" "}
+      Go Back
     </button>
   );
 }
-export default HomeButton;
+export default BackButton;
