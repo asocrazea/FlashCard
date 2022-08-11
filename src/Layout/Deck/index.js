@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import listDecks from "../utils/api/index";
+import listDecks from "../../utils/api/index";
 function DeckList() {
   //   const list = listDecks.map(({ name, description }, index) => (
   //     <tr key={index}>

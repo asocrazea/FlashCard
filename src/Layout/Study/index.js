@@ -1,7 +1,5 @@
 import React from "react";
 
-function Study() {
-  return <Nav />;
-}
+function Study() {}
 
 export default Study;

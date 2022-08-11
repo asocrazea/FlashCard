@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import AddCard from "./AddCard";
+import Study from "./Study";
 import Header from "./Header";
-//import NotFound from "./NotFound";
-import View from "./View";
-import CreateDeckButton from "./Buttons/CreateDeckButton";
+import NotFound from "./NotFound";
+import Home from "./Home";
+import Deck from "./Deck";
+import CreateDeck from "./CreateDeck";
+import EditCard from "./EditCard";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 
 function Layout() {
   return (
     <>
       <Header />
 
-      <div className="Nav"></div>
-
       <div className="container">
-        <View />
+        <Switch>
+          <Route>
+            <Home />
+          </Route>
+          <Route>
+            <Study />
+          </Route>
+          <Route>
+            <EditCard />
+          </Route>
+        </Switch>
       </div>
     </>
   );
