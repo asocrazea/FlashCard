@@ -2,7 +2,9 @@ import React from "react";
 import { readDeck, createDeck } from "../../utils/api/index";
 import DeckForm from "../DeckForm";
 import { useState } from "react";
+import { Link, useRouteMatch, useHistory } from "react-router-dom";
 function CreateDeck(deck, deckId) {
+  const { url } = useRouteMatch();
   const [card, setCard] = useState();
   const [deck, setDeck] = useState();
 
@@ -16,13 +18,13 @@ function CreateDeck(deck, deckId) {
   };
   return (
     <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/"></Link>Home
+      <nav aria-label="breadcrumb">
+        <ul className="breadcrumb">
+          <li className="breadcrumb">
+            <Link to={"/"}></Link>Home
           </li>
-          <li>
-            <Link to="/decks/new">{deck.name}</Link>
+          <li className="breacrumb">
+            <Link to={"/decks/new"}>{deck.name}</Link>
           </li>
         </ul>
       </nav>

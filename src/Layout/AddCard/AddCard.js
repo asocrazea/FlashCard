@@ -19,16 +19,16 @@ function AddCard() {
   }, []);
   return (
     <>
-      <nav>
-        <ol>
-          <li>
+      <nav aria-label="breadcrumb">
+        <ol className="breadcrumb">
+          <li className="breadcrumb">
             <Link to="/"></Link>Home
           </li>
-          <li>
+          <li className="breadcrumb">
             <Link to="/decks/:deckId/"></Link>
             {deck.name}
           </li>
-          <li>
+          <li className="breadcrumb">
             <Link to="/decks/:deckId/cards/new"></Link>AddCard
           </li>
         </ol>
