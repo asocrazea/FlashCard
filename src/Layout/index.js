@@ -7,26 +7,33 @@ import Home from "./Home";
 import Deck from "./Deck";
 import CreateDeck from "./CreateDeck";
 import EditCard from "./EditCard";
-import { Switch, Route, useRouteMatch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Switch,
+  useLocation,
+} from "react-router-dom";
 
 function Layout() {
   return (
     <>
       <Header />
-
-      <div className="container">
-        <Switch>
-          <Route>
-            <Home />
-          </Route>
-          <Route>
-            <Study />
-          </Route>
-          <Route>
-            <EditCard />
-          </Route>
-        </Switch>
-      </div>
+      <Router>
+        <div className="container">
+          <Switch>
+            <Route exact={true} path={"/"}>
+              <Home />
+            </Route>
+            <Route path={"/study/"}>
+              <Study />
+            </Route>
+            <Route path={"/decks/:deckId/cards/:cardId/edit"}>
+              <EditCard />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </>
   );
 }

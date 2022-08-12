@@ -16,8 +16,21 @@ function CardForm({ submitHandler, changeHandler, card, deck }) {
         </div>
         <div>
           <lable>Back</lable>
-          <textarea></textarea>
+          <textarea
+            className=""
+            id="cardBack"
+            placeHolder="add definition here"
+            name="back"
+            value={card.back}
+            onChange={changeHandler}
+          ></textarea>
         </div>
+        <Link to={`/decks/:${deck.id}`} type="button">
+          Done
+        </Link>
+        <button type="submit" className="btn btn">
+          Submit
+        </button>
       </form>
     </>
   );

@@ -18,36 +18,25 @@ function Home({ decks }) {
             <button type="button">View</button>
           </Link>
           <Link to={`/decks/:${deck.id}/study`}>
-            <button type="button"></button>
+            <button type="button">Study</button>
           </Link>
+          <button type="button" onClick={() => {}}></button>
         </div>
       </div>
     </div>
   ));
   return (
     <>
-      <button
-        type="button"
-        className="btn btn-secondary mb-2"
-        onClick={() => history.push("/decks/new")}
-      >
-        + Create Deck
-      </button>
-
-      <button
-        type="button"
-        className="btn btn-secondary mb-2"
-        onClick={() => history.push("/decks/new")}
-      >
-        Study
-      </button>
-      <button
-        type="button"
-        className="btn btn-secondary mb-2"
-        onClick={() => history.push("/decks/new")}
-      >
-        View
-      </button>
+      <div>
+        <button
+          type="button"
+          className="btn btn-secondary mb-2"
+          onClick={() => history.push("/decks/new")}
+        >
+          + Create Deck
+        </button>
+      </div>
+      <div>{deckList}</div>
     </>
   );
 }
