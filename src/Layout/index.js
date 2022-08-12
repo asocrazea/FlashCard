@@ -12,10 +12,11 @@ import {
   Link,
   Route,
   Switch,
-  useLocation,
+  useRouteMatch,
 } from "react-router-dom";
 
 function Layout() {
+  const { path } = useRouteMatch();
   return (
     <>
       <Header />
