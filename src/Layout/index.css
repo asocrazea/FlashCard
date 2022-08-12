@@ -1,3 +1,28 @@
+/* breadcrumb navigation*/
+
+ul {
+  list-style: none;
+}
+/* removes bullet points */
+
+ul li {
+  display: inline;
+}
+/* shows list in horizontal form */
+
+ul li+li::before {
+  content: ">";
+  padding: 10px;
+}
+/* adds angle bracket between list items */
+
+ul li Link:hover {
+  text-decoration: underline;
+  
+}
+
+
+
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: #333;
