@@ -3,7 +3,7 @@ import { readDeck, createDeck } from "../../utils/api/index";
 import DeckForm from "../DeckForm";
 import { useState } from "react";
 import { Link, useRouteMatch, useHistory } from "react-router-dom";
-function CreateDeck(deck, deckId) {
+function CreateDeck() {
   const { url } = useRouteMatch();
   const [card, setCard] = useState();
   const [deck, setDeck] = useState();
@@ -17,7 +17,7 @@ function CreateDeck(deck, deckId) {
     setDeck({});
   };
   return (
-    <>
+    <div>
       <nav aria-label="breadcrumb">
         <ul className="breadcrumb">
           <li className="breadcrumb">
@@ -35,7 +35,7 @@ function CreateDeck(deck, deckId) {
         <button></button>
         <button></button>
       </div>
-    </>
+    </div>
   );
 }
 export default CreateDeck;

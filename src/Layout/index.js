@@ -4,11 +4,7 @@ import Study from "./Study/Study";
 import Header from "./Header";
 import NotFound from "./NotFound";
 import Home from "./Home/Home";
-import Deck from "./Deck/Deck";
-import CreateDeck from "./CreateDeck/CreateDeck";
-import EditDeck from "./EditDeck/EditDeck";
-import CardForm from "./CardForm";
-import DeckForm from "./DeckForm";
+
 import {
   BrowserRouter as Router,
   Link,
@@ -20,25 +16,27 @@ import {
 function Layout() {
   const { path } = useRouteMatch();
   return (
-    <>
+    <div>
       <Header />
       <Router>
-        <div className="container">
-          <Switch>
-            <Route exact={true} path={"/"}>
-              <Home />
-            </Route>
-            <Route path={"/study/"}>
-              <Study />
-            </Route>
-            <Route path={"/decks/:deckId/cards/:cardId/edit"}></Route>
-            <Route>
-              <NotFound />
-            </Route>
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact={true} path={"/"}>
+            <Home />
+          </Route>
+          <Route path={"/study"}>
+            <Study />
+          </Route>
+
+          <Route path={"/decks/:deckId/cards/:cardId/edit"}>
+            <EditDeck />
+          </Route>
+          <Route>
+            <NotFound />
+          </Route>
+          <Route></Route>
+        </Switch>
       </Router>
-    </>
+    </div>
   );
 }
 export default Layout;

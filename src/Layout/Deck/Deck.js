@@ -6,7 +6,7 @@ function Deck() {
   const [deck, setDeck] = useState();
 
   return (
-    <>
+    <div>
       {/* Breadcrumb Navigation */}
       <h1>Decks</h1>
       <nav aria-label="breadcumb">
@@ -34,7 +34,7 @@ function Deck() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 export default Deck;

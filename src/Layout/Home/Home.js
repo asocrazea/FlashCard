@@ -1,11 +1,14 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import { listDecks } from "../../utils/api/index";
 import { Link, useHistory } from "react-router-dom";
 
-function Home({ decks }) {
+function Home({}) {
   history = useHistory();
-
-  let deckList = decks.map((deck, index) => (
+  const [decks, setDecks] = useState([]);
+  useEffect(() => {
+    listDecks().then(setDecks);
+  }, []);
+  let view = listDecks.map((deck, index) => (
     <div className="deck-row" key={index}>
       <div className="card" key={index}>
         <div className="card-body">
@@ -26,18 +29,17 @@ function Home({ decks }) {
     </div>
   ));
   return (
-    <>
-      <div>
-        <button
-          type="button"
-          className="btn"
-          onClick={() => history.push("/decks/new")}
-        >
-          + Create Deck
-        </button>
-      </div>
-      <div>{deckList}</div>
-    </>
+    <div>
+      <button
+        type="button"
+        className="btn"
+        onClick={() => history.push("/decks/new")}
+      >
+        + Create Deck
+      </button>
+
+      <div>{view}</div>
+    </div>
   );
 }
 export default Home;
