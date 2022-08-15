@@ -4,6 +4,8 @@ import Study from "./Study/Study";
 import Header from "./Header";
 import NotFound from "./NotFound";
 import Home from "./Home/Home";
+import EditDeck from "./EditDeck/EditDeck";
+import CreateDeck from "./CreateDeck/CreateDeck";
 
 import {
   BrowserRouter as Router,
@@ -16,9 +18,9 @@ import {
 function Layout() {
   const { path } = useRouteMatch();
   return (
-    <div>
-      <Header />
+    <>
       <Router>
+        <Header />
         <Switch>
           <Route exact={true} path={"/"}>
             <Home />
@@ -31,12 +33,14 @@ function Layout() {
             <EditDeck />
           </Route>
           <Route>
+            <CreateDeck />
+          </Route>
+          <Route>
             <NotFound />
           </Route>
-          <Route></Route>
         </Switch>
       </Router>
-    </div>
+    </>
   );
 }
 export default Layout;

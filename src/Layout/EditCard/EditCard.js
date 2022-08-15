@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link, useRouteMatch, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import listDecks, { deleteDeck } from "../../utils/api/index";
+import CardForm from "../CardForm";
 
 function EditCard() {
   const history = useHistory();
@@ -18,6 +19,7 @@ function EditCard() {
           </li>
         </ul>
       </nav>
+      <CardForm />
     </div>
   );
 }

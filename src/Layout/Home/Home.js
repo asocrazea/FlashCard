@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { listDecks } from "../../utils/api/index";
 import { Link, useHistory } from "react-router-dom";
 
-function Home({}) {
-  history = useHistory();
+function Home() {
+  const history = useHistory();
   const [decks, setDecks] = useState([]);
   useEffect(() => {
     listDecks().then(setDecks);
   }, []);
-  let view = listDecks.map((deck, index) => (
+  let view = decks.map((deck, index) => (
     <div className="deck-row" key={index}>
       <div className="card" key={index}>
         <div className="card-body">
@@ -37,7 +37,6 @@ function Home({}) {
       >
         + Create Deck
       </button>
-
       <div>{view}</div>
     </div>
   );

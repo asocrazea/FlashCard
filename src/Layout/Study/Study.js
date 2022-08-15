@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRouteMatch, useEffect } from "react";
 import { readDeck } from "../../utils/api/index";
-import { useRouteMatch, useEffect } from "";
 import Deck from "../Deck/Deck";
+import { Link } from "react-router-dom";
 function Study() {
-  let history = useRouteMatch();
+  const { url } = useRouteMatch;
 
-  const [decks, setDecks] = useState([]);
+  const [deck, setDeck] = useState([]);
   useEffect(() => {
-    readDeck().then(setDecks);
+    readDeck().then(setDeck);
   }, []);
   return (
     <div>

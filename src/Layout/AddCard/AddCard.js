@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { readDeck, createCard } from "../../utils/api/index";
+import { Link } from "react-router-dom";
 
 import CardForm from "../CardForm";
 
@@ -7,7 +8,7 @@ function AddCard() {
   const [card, setCard] = useState();
   const [deck, setDeck] = useState();
   const submitHandler = () => {
-    preventDefault();
+    //  preventDefault();
     setCard({ front: card.front, back: card.back });
   };
   useEffect(() => {
