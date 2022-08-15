@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import React from "react";
 
 function DeckForm({ submitHandler, changeHandler, deck }) {
   return (
@@ -11,7 +12,6 @@ function DeckForm({ submitHandler, changeHandler, deck }) {
             id="DeckName"
             placeholder="Name of Deck"
             name=""
-            value={deck.name}
             onChange={changeHandler}
           />
           <label>Description</label>
@@ -19,7 +19,6 @@ function DeckForm({ submitHandler, changeHandler, deck }) {
             id=""
             placeholder="Add a description of the deck"
             name=""
-            value={deck.description}
             onChange={changeHandler}
           ></textarea>
         </div>

@@ -5,7 +5,7 @@ import View from "../View";
 
 function Home() {
   const history = useHistory();
-  const [decks, setDecks] = useState([]);
+
   const handleButtonClick = () => {
     history.push("/decks/new");
   };
@@ -17,12 +17,6 @@ function Home() {
       </button>
       <div>
         <View />
-        <Link to={`/decks/:${decks.id}`}>
-          <button type="button">View</button>
-        </Link>
-        <Link to={`/decks/:${decks.id}/study`}>
-          <button type="button">Study</button>
-        </Link>
       </div>
     </div>
   );

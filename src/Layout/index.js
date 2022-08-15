@@ -33,7 +33,7 @@ function Layout() {
             <EditDeck />
           </Route>
           <Route>
-            <CreateDeck />
+            <CreateDeck path={"/decks/new"} />
           </Route>
           <Route>
             <NotFound />
