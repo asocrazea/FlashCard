@@ -1,43 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { listDecks } from "../../utils/api/index";
 import { Link, useHistory } from "react-router-dom";
+import View from "../View";
 
 function Home() {
   const history = useHistory();
   const [decks, setDecks] = useState([]);
-  useEffect(() => {
-    listDecks().then(setDecks);
-  }, []);
-  let view = decks.map((deck, index) => (
-    <div className="deck-row" key={index}>
-      <div className="card" key={index}>
-        <div className="card-body">
-          <h3 className="card-title">{deck.name}</h3>
-          <p className="card-text">{deck.description}</p>
-          <p>{deck.cards.length}</p>
-        </div>
-        <div>
-          <Link to={`/decks/:${deck.id}`}>
-            <button type="button">View</button>
-          </Link>
-          <Link to={`/decks/:${deck.id}/study`}>
-            <button type="button">Study</button>
-          </Link>
-          <button type="button" onClick={() => {}}></button>
-        </div>
-      </div>
-    </div>
-  ));
+  const handleButtonClick = () => {
+    history.push("/decks/new");
+  };
+
   return (
     <div>
-      <button
-        type="button"
-        className="btn"
-        onClick={() => history.push("/decks/new")}
-      >
+      <button type="button" onClick={handleButtonClick}>
         + Create Deck
       </button>
-      <div>{view}</div>
+      <div>
+        <View />
+        <Link to={`/decks/:${decks.id}`}>
+          <button type="button">View</button>
+        </Link>
+        <Link to={`/decks/:${decks.id}/study`}>
+          <button type="button">Study</button>
+        </Link>
+      </div>
     </div>
   );
 }

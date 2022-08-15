@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import AddCard from "./AddCard/AddCard";
 import Study from "./Study/Study";
 import Header from "./Header";
@@ -6,6 +5,7 @@ import NotFound from "./NotFound";
 import Home from "./Home/Home";
 import EditDeck from "./EditDeck/EditDeck";
 import CreateDeck from "./CreateDeck/CreateDeck";
+import React from "react";
 
 import {
   BrowserRouter as Router,
@@ -18,7 +18,7 @@ import {
 function Layout() {
   const { path } = useRouteMatch();
   return (
-    <>
+    <div>
       <Router>
         <Header />
         <Switch>
@@ -40,7 +40,7 @@ function Layout() {
           </Route>
         </Switch>
       </Router>
-    </>
+    </div>
   );
 }
 export default Layout;

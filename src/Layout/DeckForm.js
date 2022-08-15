@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function DeckForm({ submitHandler, changeHandler, deck }) {
   return (
-    <>
+    <div>
       <form onSubmit={submitHandler}>
         <div>
           <label> Name </label>
@@ -28,7 +28,7 @@ function DeckForm({ submitHandler, changeHandler, deck }) {
           Submit
         </button>
       </form>
-    </>
+    </div>
   );
 }
 export default DeckForm;

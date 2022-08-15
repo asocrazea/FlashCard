@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 function CardForm({ submitHandler, changeHandler, card, deck }) {
   return (
-    <>
+    <div>
       <form onSubmit={submitHandler}>
         <div>
           <label>Front</label>
@@ -32,7 +32,7 @@ function CardForm({ submitHandler, changeHandler, card, deck }) {
           Submit
         </button>
       </form>
-    </>
+    </div>
   );
 }
 export default CardForm;
