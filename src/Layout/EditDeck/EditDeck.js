@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useRouteMatch, useHistory } from "react-router-dom";
 import listDecks, { deleteDeck } from "../../utils/api/index";
+import DeckForm from "../DeckForm";
 
 function EditDeck() {
   return (
@@ -16,6 +17,7 @@ function EditDeck() {
           </li>
         </ul>
       </nav>
+      <DeckForm />
     </div>
   );
 }
