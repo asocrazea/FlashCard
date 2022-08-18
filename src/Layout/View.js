@@ -11,10 +11,10 @@ function View({}) {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container" key={deck.name}>
       <div>
         {decks.map((deck) => (
-          <Deck deck={deck} key={deck.name} />
+          <Deck deck={deck} name={deck.name} key={deck.name} />
         ))}
       </div>
     </div>

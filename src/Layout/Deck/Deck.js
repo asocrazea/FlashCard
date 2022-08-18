@@ -2,13 +2,18 @@ import React, { useEffect, useState } from "react";
 
 import { Link, useRouteMatch, useHistory } from "react-router-dom";
 import { listDecks } from "../../utils/api";
-function Deck({ deck }) {
+function Deck({ deck, name }) {
   const history = useHistory();
   const [decks, setDecks] = useState();
   useEffect(() => {
     listDecks().then(setDecks);
   }, []);
-
+  const handleStudy = () => {
+    history.push(`/decks/:${deck.Id}/study`);
+  };
+  const handleView = () => {
+    history.push(`/deck/${deck.id}`);
+  };
   return (
     <div>
       <div className="card">
@@ -16,10 +21,19 @@ function Deck({ deck }) {
           <h3 className="card-title">{deck.name}</h3>
           <p className="card-text">{deck.description}</p>
           <div>
-            <Link to={`/decks/:${deck.id}`}> View </Link>
-            <Link to={`/decks/${deck.id}/study`}> Study</Link>
+            <button
+              onClick={() => handleStudy()}
+              className="btn btn-primary mx-1"
+            >
+              Study
+            </button>
 
-            <button className="btn btn-secondary btn-sm"> Delete </button>
+            <button
+              onClick={() => handleView()}
+              className="btn btn-primary mx-1"
+            >
+              View
+            </button>
           </div>
         </div>
       </div>
