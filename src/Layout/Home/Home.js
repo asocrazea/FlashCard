@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import { Link, Route, useHistory } from "react-router-dom";
 import { listDecks } from "../../utils/api";
-import Deck from "../Deck/Deck";
 import View from "../View";
 
 function Home({}) {
@@ -17,9 +16,11 @@ function Home({}) {
 
   return (
     <div className="container">
-      <button type="button" onClick={handleButtonClick}>
-        + Create Deck
-      </button>
+      <Link to="/deck/new">
+        <button type="button" onClick={handleButtonClick}>
+          + Create Deck
+        </button>
+      </Link>
       <h1 className="title">Decks</h1>
       <div>
         <View />

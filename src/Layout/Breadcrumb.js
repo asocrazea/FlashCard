@@ -18,9 +18,12 @@ export default function BasicBreadcrumbs() {
             </Link>
           </li>
           <li className="breadcrumb">
-            <Link underline="hover" color="inherit" to={pathname}>
+            <Link underline="hover" color="inherit" to="">
               {deck.name}
             </Link>
+          </li>
+          <li>
+            <Link underline="hover" to=""></Link>
           </li>
         </ul>
       </nav>

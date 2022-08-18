@@ -5,7 +5,7 @@ function DeckForm({ submitHandler, changeHandler, deck }) {
   return (
     <div>
       <form onSubmit={submitHandler}>
-        <div>
+        <div className="">
           <label> Name </label>
           <input
             type="text"
@@ -15,6 +15,8 @@ function DeckForm({ submitHandler, changeHandler, deck }) {
             onChange={changeHandler}
           />
           <label>Description</label>
+        </div>
+        <div className="card">
           <textarea
             id=""
             placeholder="Add a description of the deck"

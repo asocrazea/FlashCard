@@ -12,6 +12,14 @@
   border: 6px cornflowerblue;
   max-width: fit-content;
 }
+.text-box {
+  
+}
+.create-card {
+  display: list-item;
+  display: table-column;
+  max-width: min-content;
+}
 /* breadcrumb navigation*/
 
 ul {

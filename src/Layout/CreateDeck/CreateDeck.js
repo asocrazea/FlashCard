@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Link, Route, useRouteMatch, useHistory } from "react-router-dom";
 function CreateDeck() {
   const { url } = useRouteMatch();
+  const history = useHistory();
 
   const [deck, setDeck] = useState();
 
@@ -16,18 +17,23 @@ function CreateDeck() {
     event.preventdefault();
     setDeck({});
   };
-  function handleClick(event) {
-    event.preventdefault();
-  }
+  const handleClick = () => {
+    history.push("/");
+  };
   return (
-    <div>
+    <div className="container">
       <div onClick={handleClick}>
         {/* Breadcrumb Navigation */}
 
         <nav aria-label="breadcumb">
           <ul className="breadcrumb">
             <li className="breadcrumb">
-              <Link underline="hover" color="inherit" href="/">
+              <Link
+                underline="hover"
+                color="inherit"
+                to="/"
+                onClick={handleClick}
+              >
                 Home
               </Link>
             </li>
@@ -39,12 +45,8 @@ function CreateDeck() {
           </ul>
         </nav>
       </div>
-      <div>
+      <div className="container create-card">
         <DeckForm onChange={changeHandler} onSubmit={submitHandler} />
-      </div>
-      <div>
-        <button></button>
-        <button></button>
       </div>
     </div>
   );
