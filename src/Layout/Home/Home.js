@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { listDecks } from "../../utils/api/index";
-import { Link, useHistory } from "react-router-dom";
+
+import { Link, Route, useHistory } from "react-router-dom";
+import { listDecks } from "../../utils/api";
+import Deck from "../Deck/Deck";
 import View from "../View";
 
-function Home() {
+function Home({}) {
   const history = useHistory();
-
+  const [decks, setDecks] = useState();
+  useEffect(() => {
+    listDecks().then(setDecks);
+  }, []);
   const handleButtonClick = () => {
     history.push("/decks/new");
   };
 
   return (
-    <div>
+    <div className="container">
       <button type="button" onClick={handleButtonClick}>
         + Create Deck
       </button>
+      <h1 className="title">Decks</h1>
       <div>
         <View />
       </div>

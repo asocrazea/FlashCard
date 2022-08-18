@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useRouteMatch, useHistory } from "react-router-dom";
-import listDecks, { deleteDeck } from "../../utils/api/index";
+
 import DeckForm from "../DeckForm";
 
 function EditDeck() {
+  const history = useHistory();
+  const { url } = useRouteMatch();
   return (
     <div>
       {/* bread crumb navigation */}

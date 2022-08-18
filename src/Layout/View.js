@@ -11,37 +11,12 @@ function View({}) {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <div>
-        {/* {decks.map((deck) => (
-          <div className="card" key={deck.id}>
-            <div className="card-body">
-              <h2 className="card-title">{`${deck.name}`}</h2>
-              <p className="card-text">{`${deck.description}`}</p>
-              <p className="card-text">{`${deck.cards.length} cards`}</p>
-            </div>
-          </div>
-        ))}  */}
         {decks.map((deck) => (
           <Deck deck={deck} key={deck.name} />
         ))}
       </div>
-      <button
-        className="btn btn-secondary btn-sm"
-        onClick={() => history.push(`/decks/${decks.id}`)}
-      >
-        {" "}
-        View{" "}
-      </button>
-      <button
-        className="btn btn-secondary btn-sm"
-        onClick={() => history.push(`/decks/${decks.id}/study`)}
-      >
-        {" "}
-        Study{" "}
-      </button>
-
-      <button className="btn btn-secondary btn-sm"> Delete </button>
     </div>
   );
 }

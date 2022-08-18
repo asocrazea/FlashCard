@@ -10,7 +10,6 @@ import Deck from "./Deck/Deck";
 import EditCard from "./EditCard/EditCard";
 import {
   BrowserRouter as Router,
-  Link,
   Route,
   Switch,
   useRouteMatch,
@@ -22,23 +21,24 @@ function Layout() {
     <div>
       <Router>
         <Header />
+
         <Switch>
-          <Route exact={true} path={"/"}>
+          <Route exact={true} path="/">
             <Home />
           </Route>
-          <Route path={"/study"}>
+          <Route path="/study">
             <Study />
           </Route>
-          <Route path={"/decks/:deckId"}>
+          <Route path="/decks/:deckId">
             <Deck />
           </Route>
-          <Route path={"/decks/:deckId/cards/:cardId/edit"}>
+          <Route path="/decks/:deckId/cards/:cardId/edit">
             <EditDeck />
           </Route>
           <Route>
-            <CreateDeck path={"/decks/new"} />
+            <CreateDeck path="/decks/new" />
           </Route>
-          <Route path={"/decks/:deckId/cards/new"}>
+          <Route path="/decks/:deckId/cards/new">
             <AddCard />
           </Route>
           <Route path={"/decks/:deckId/cards/:cardId/edit"}>
