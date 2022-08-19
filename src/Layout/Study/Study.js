@@ -2,12 +2,10 @@ import React, { useState, useRouteMatch, useEffect } from "react";
 import { readDeck } from "../../utils/api/index";
 import Deck from "../Deck/Deck";
 import { Link } from "react-router-dom";
-function Study() {
-  const { url } = useRouteMatch;
-
+function Study(deckId) {
   const [deck, setDeck] = useState([]);
   useEffect(() => {
-    readDeck().then(setDeck);
+    readDeck(deckId).then(setDeck);
   }, []);
   return (
     <div>
@@ -21,7 +19,7 @@ function Study() {
           </li>
         </ul>
       </nav>
-      <Deck />
+      {/* <Deck /> */}
     </div>
   );
 }

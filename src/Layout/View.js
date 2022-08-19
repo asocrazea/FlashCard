@@ -11,7 +11,7 @@ function View({}) {
   }, []);
 
   return (
-    <div className="container" key={deck.name}>
+    <div className="container">
       <div>
         {decks.map((deck) => (
           <Deck deck={deck} name={deck.name} key={deck.name} />

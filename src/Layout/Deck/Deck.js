@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 
 import { Link, useRouteMatch, useHistory } from "react-router-dom";
 import { listDecks } from "../../utils/api";
-function Deck({ deck, name }) {
+function Deck({ deck }) {
   const history = useHistory();
   const [decks, setDecks] = useState();
   useEffect(() => {
     listDecks().then(setDecks);
   }, []);
   const handleStudy = () => {
-    history.push(`/decks/:${deck.Id}/study`);
+    history.push(`/decks/${deck.id}/study`);
   };
   const handleView = () => {
     history.push(`/deck/${deck.id}`);
