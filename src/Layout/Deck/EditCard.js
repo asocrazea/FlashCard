@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import CardForm from "../CardForm";
+import CardForm from "./CardForm";
 
 function EditCard() {
   const history = useHistory();

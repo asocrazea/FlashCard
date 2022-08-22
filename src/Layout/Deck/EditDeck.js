@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useRouteMatch, useHistory } from "react-router-dom";
 
-import DeckForm from "../DeckForm";
+import DeckForm from "./DeckForm";
 
 function EditDeck() {
   const history = useHistory();

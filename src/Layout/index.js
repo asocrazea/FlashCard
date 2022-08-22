@@ -10,12 +10,7 @@ import Deck from "./Deck/Deck";
 import EditCard from "./Deck/EditCard";
 //import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useRouteMatch,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function Layout() {
   return (

@@ -1,21 +1,20 @@
-import React from "react";
-import { readDeck, createDeck } from "../../utils/api/index";
-import DeckForm from "../DeckForm";
-import { useState } from "react";
-import { Link, useRouteMatch, useHistory } from "react-router-dom";
-function CreateDeck() {
+import DeckForm from "../Deck/DeckForm";
+
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { createDeck } from "../../utils/api/index.js";
+function CreateDeck({ updateDecks }) {
+  const [newDeck, setNewDeck] = useState({ name: "", description: "" });
   const history = useHistory();
 
   const [deck, setDeck] = useState();
+  const submitForm = async (event) => {
+    event.preventDefault();
+    const response = await createDeck(newDeck);
+    history.push(`/decks/${response.id}`);
+    updateDecks(1);
+  };
 
-  const submitHandler = (event) => {
-    event.preventdefault();
-    setDeck({ name: deck.name, description: deck.description });
-  };
-  const changeHandler = (event) => {
-    event.preventdefault();
-    setDeck({});
-  };
   const handleClick = () => {
     history.push("/");
   };
@@ -40,7 +39,6 @@ function CreateDeck() {
               underline="hover"
               color="inherit"
               to="/decks/new"
-              onClick={handleClick}
             >
               Create
             </button>
@@ -48,7 +46,7 @@ function CreateDeck() {
         </ul>
       </nav>
       <div className="container">
-        <DeckForm onChange={changeHandler} onSubmit={submitHandler} />
+        <DeckForm onSubmit={submitForm} />
       </div>
     </div>
   );

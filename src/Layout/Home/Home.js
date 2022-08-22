@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Link, Route, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { listDecks } from "../../utils/api";
 import View from "../View";
 

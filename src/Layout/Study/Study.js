@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { readCard, readDeck } from "../../utils/api/index";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Card from "../Cards/Card";
 //import "bootstrap/dist/css/bootstrap.min.css";
 
