@@ -1,15 +1,14 @@
 import React, { Link, useEffect, useState } from "react";
 import { readCard, readDeck } from "../../utils/api";
 
-function FlashCard(cardId, deckId) {
+function FlashCard({ cardId, deckId, card }) {
   const [flip, setFlip] = useState(false);
-  const [card, setCard] = useState([]);
-  const [deck, setDeck] = useState([]);
-  useEffect(() => {
-    readCard(cardId).then(setCard);
-    readDeck(deckId).then(setDeck);
-  }, []);
 
-  return <div onClick={() => setFlip(!flip)}>{card.back}</div>;
+  return (
+    <div onClick={() => setFlip(!flip)}>
+      <div>{card} card back</div>
+      <div>{card} card front</div>
+    </div>
+  );
 }
-export default FlipCard;
+export default FlashCard;

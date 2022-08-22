@@ -3,7 +3,8 @@ import { readCard, readDeck } from "../../utils/api/index";
 import { Link, useHistory } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import FlipCard from "../Cards/FlipCard";
+import FlipCard from "../Cards/FlashCard";
+import FlashCard from "../Cards/FlashCard";
 function Study(cardId, deckId) {
   const [deck, setDeck] = useState();
   const [card, setCard] = useState();
@@ -20,7 +21,13 @@ function Study(cardId, deckId) {
       <nav aria-label="breadcrumb">
         <ul className="breadcrumb">
           <li className="breadcrumb">
-            <button onClick={homeHandleBtn} to="/">
+            <button
+              onClick={homeHandleBtn}
+              to="/"
+              type="button"
+              underline="hover"
+              color="inherit"
+            >
               Home
             </button>
           </li>
@@ -29,7 +36,9 @@ function Study(cardId, deckId) {
           </li>
         </ul>
       </nav>
-      <div className="card-box"></div>
+      <div className="card-box">
+        <FlashCard />
+      </div>
     </div>
   );
   // return (

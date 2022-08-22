@@ -40,6 +40,7 @@ function CreateDeck() {
               underline="hover"
               color="inherit"
               to="/decks/new"
+              onClick={handleClick}
             >
               Create
             </button>
@@ -47,7 +48,7 @@ function CreateDeck() {
         </ul>
       </nav>
       <div className="container">
-        <DeckForm />
+        <DeckForm onChange={changeHandler} onSubmit={submitHandler} />
       </div>
     </div>
   );
