@@ -8,6 +8,9 @@ import CreateDeck from "./CreateDeck/CreateDeck";
 import React from "react";
 import Deck from "./Deck/Deck";
 import EditCard from "./EditCard/EditCard";
+import FlashCard from "./Cards/FlashCard";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
 import {
   BrowserRouter as Router,
   Route,
@@ -16,7 +19,6 @@ import {
 } from "react-router-dom";
 
 function Layout() {
-  const { path } = useRouteMatch();
   return (
     <div>
       <Router>
@@ -26,24 +28,26 @@ function Layout() {
           <Route exact={true} path="/">
             <Home />
           </Route>
+
           <Route path="/decks/:deckId/study">
             <Study />
           </Route>
-          <Route path="/decks/:deckId">
+          <Route path="/decks/deckId">
             <Deck />
           </Route>
-          <Route path="/decks/:deckId/cards/:cardId/edit">
+          <Route path="/decks/deckId/cards/:cardId/edit">
             <EditDeck />
           </Route>
           <Route>
             <CreateDeck path="/decks/new" />
           </Route>
-          <Route path="/decks/:deckId/cards/new">
+          <Route path="/decks/deckId/cards/new">
             <AddCard />
           </Route>
-          <Route path={"/decks/:deckId/cards/:cardId/edit"}>
+          <Route path={"/decks/deckId/cards/:cardId/edit"}>
             <EditCard />
           </Route>
+
           <Route>
             <NotFound />
           </Route>

@@ -17,7 +17,7 @@ function Home({}) {
   return (
     <div className="container">
       <Link to="/deck/new">
-        <button type="button" onClick={handleButtonClick}>
+        <button className="btn btn-secondary " onClick={handleButtonClick}>
           + Create Deck
         </button>
       </Link>

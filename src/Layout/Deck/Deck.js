@@ -18,8 +18,10 @@ function Deck({ deck }) {
     <div>
       <div className="card">
         <div className="card-body">
+          <p>{deck.name.length} cards</p>
           <h3 className="card-title">{deck.name}</h3>
           <p className="card-text">{deck.description}</p>
+
           <div>
             <button
               onClick={() => handleStudy()}

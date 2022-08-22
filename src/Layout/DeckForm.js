@@ -3,7 +3,7 @@ import React from "react";
 
 function DeckForm({ submitHandler, changeHandler, deck }) {
   return (
-    <div>
+    <div className="card-box">
       <form onSubmit={submitHandler}>
         <div className="">
           <label> Name </label>

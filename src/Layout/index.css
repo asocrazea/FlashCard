@@ -1,16 +1,30 @@
 .container {
-  
   display: block;
+  justify-items: center;
+  ;
+}
+.view {
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 .title {
   justify-content: center;
   text-align: center;
 }
 
-.card {
-  display: block;
+.card-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 6px cornflowerblue;
-  max-width: fit-content;
+  position: relative;
+  box-shadow: 0 0 5px 2px black;
+  height: 300px;
+  width: 500px;
+  background-color: white;
+  transform-style: preserve-3d;
+  padding: 5px;
 }
 .text-box {
   
