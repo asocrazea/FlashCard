@@ -6,7 +6,7 @@ import Home from "./Home/Home";
 import EditDeck from "./EditDeck/EditDeck";
 import CreateDeck from "./CreateDeck/CreateDeck";
 import React from "react";
-import DeckView from "./Deck/DeckView";
+//import DeckView from "./Deck/DeckView";
 import EditCard from "./EditCard/EditCard";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
@@ -31,9 +31,7 @@ function Layout() {
           <Route path="/decks/:deckId/study">
             <Study />
           </Route>
-          <Route path="/decks/deckId">
-            <DeckView />
-          </Route>
+          <Route path="/decks/deckId"></Route>
           <Route path="/decks/deckId/cards/:cardId/edit">
             <EditDeck />
           </Route>

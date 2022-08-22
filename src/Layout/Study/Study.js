@@ -38,30 +38,6 @@ function Study(cardId, deckId) {
       </nav>
     </div>
   );
-  // return (
-  //   <div>
-  //     <nav aria-label="breadcrumb">
-  //       <ul className="breadcrumb">
-  //         <li className="breadcrumb">
-  //           <Link to={"/"}>Home</Link>
-  //         </li>
-  //         <li className="breadcrumb">
-  //           <Link to={`/${deck.id}/study`}>Study</Link>
-  //         </li>
-  //       </ul>
-  //     </nav>
-  //     <div>
-  //       <div>
-  //         <div>
-  //           {card.map((card) => {
-  //             return;
-  //             <FlipCard key={card.id} card={card} />;
-  //           })}
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
 }
 
 export default Study;
