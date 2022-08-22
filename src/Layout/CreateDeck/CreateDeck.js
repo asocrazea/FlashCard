@@ -52,35 +52,5 @@ function CreateDeck() {
       </div>
     </div>
   );
-  // return (
-  //   <div className="container">
-  //     <div onClick={handleClick}>
-  //       {/* Breadcrumb Navigation */}
-
-  //       <nav aria-label="breadcumb">
-  //         <ul className="breadcrumb">
-  //           <li className="breadcrumb">
-  //             <Link
-  //               underline="hover"
-  //               color="inherit"
-  //               to="/"
-  //               onClick={handleClick}
-  //             >
-  //               Home
-  //             </Link>
-  //           </li>
-  //           <li className="breadcrumb">
-  //             <Link underline="hover" color="inherit" to="/decks/new">
-  //               Create
-  //             </Link>
-  //           </li>
-  //         </ul>
-  //       </nav>
-  //     </div>
-  //     <div className="container create-card">
-  //       <DeckForm onChange={changeHandler} onSubmit={submitHandler} />
-  //     </div>
-  //   </div>
-  // );
 }
 export default CreateDeck;

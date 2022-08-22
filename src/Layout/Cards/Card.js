@@ -5,13 +5,13 @@ function Card(cardId) {
   const [card, setCard] = useState();
   useEffect(() => {
     readCard(cardId).then(setCard);
-  });
+  }, []);
   return (
     <div>
-      <div>
-        <h3>{card.id}</h3>
-        <p>{card.front}</p>
-        <p>{card.back}</p>
+      <div className="card">
+        <h3>{}</h3>
+        <p>card front</p>
+        <p> car back</p>
       </div>
     </div>
   );

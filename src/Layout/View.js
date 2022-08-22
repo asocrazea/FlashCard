@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { listDecks } from "../utils/api/index";
-import Deck from "./Deck/Deck";
+import DeckList from "./Deck/DeckList";
 
 function View({}) {
   const [decks, setDecks] = useState([]);
@@ -12,7 +12,7 @@ function View({}) {
     <div className="container">
       <div>
         {decks.map((deck) => (
-          <Deck deck={deck} name={deck.name} key={deck.name} />
+          <DeckList deck={deck} name={deck.name} key={deck.name} />
         ))}
       </div>
     </div>

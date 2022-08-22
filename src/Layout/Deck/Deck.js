@@ -1,43 +1,17 @@
-import React, { useEffect, useState } from "react";
-
-import { Link, useRouteMatch, useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { listDecks } from "../../utils/api";
-function Deck({ deck }) {
-  const history = useHistory();
-  const [decks, setDecks] = useState();
+
+function Deck(deckId) {
+  const [deck, setDeck] = useState([]);
   useEffect(() => {
-    listDecks().then(setDecks);
+    listDecks(deckId).then(setDeck);
   }, []);
-  const handleStudy = () => {
-    history.push(`/decks/${deck.id}/study`);
-  };
-  const handleView = () => {
-    history.push(`/deck/${deck.id}`);
-  };
   return (
-    <div>
-      <div className="card">
-        <div className="card-body">
-          <p>{deck.name.length} cards</p>
-          <h3 className="card-title">{deck.name}</h3>
-          <p className="card-text">{deck.description}</p>
-
-          <div>
-            <button
-              onClick={() => handleStudy()}
-              className="btn btn-primary mx-1"
-            >
-              Study
-            </button>
-
-            <button
-              onClick={() => handleView()}
-              className="btn btn-primary mx-1"
-            >
-              View
-            </button>
-          </div>
-        </div>
+    <div className="card">
+      <div className="card-body">
+        <p>{deck.name.length} cards</p>
+        <h3 className="card-title">{deck.name}</h3>
+        <p className="card-text">{deck.description}</p>
       </div>
     </div>
   );
