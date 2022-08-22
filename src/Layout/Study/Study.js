@@ -32,13 +32,10 @@ function Study(cardId, deckId) {
             </button>
           </li>
           <li>
-            <button to="`/${deck.id}/study`"> deck id</button>
+            <button to="`/${deck.id}/study`"> Deck</button>
           </li>
         </ul>
       </nav>
-      <div className="card-box">
-        <FlashCard />
-      </div>
     </div>
   );
   // return (

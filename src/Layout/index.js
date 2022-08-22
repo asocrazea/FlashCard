@@ -6,9 +6,8 @@ import Home from "./Home/Home";
 import EditDeck from "./EditDeck/EditDeck";
 import CreateDeck from "./CreateDeck/CreateDeck";
 import React from "react";
-import Deck from "./Deck/Deck";
+import DeckView from "./Deck/DeckView";
 import EditCard from "./EditCard/EditCard";
-import FlashCard from "./Cards/FlashCard";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import {
@@ -33,7 +32,7 @@ function Layout() {
             <Study />
           </Route>
           <Route path="/decks/deckId">
-            <Deck />
+            <DeckView />
           </Route>
           <Route path="/decks/deckId/cards/:cardId/edit">
             <EditDeck />
@@ -44,7 +43,7 @@ function Layout() {
           <Route path="/decks/deckId/cards/new">
             <AddCard />
           </Route>
-          <Route path={"/decks/deckId/cards/:cardId/edit"}>
+          <Route path="/decks/deckId/cards/cardId/edit">
             <EditCard />
           </Route>
 

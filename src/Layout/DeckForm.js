@@ -25,7 +25,7 @@ function DeckForm({ submitHandler, changeHandler, deck }) {
           ></textarea>
         </div>
         <Link to={"/"} type="button" className=""></Link>
-        <button type="submit" className="">
+        <button type="submit" className="btn btn-primary mx-1">
           Submit
         </button>
       </form>

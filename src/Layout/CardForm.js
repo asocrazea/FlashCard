@@ -28,7 +28,7 @@ function CardForm({ submitHandler, changeHandler, card, deck }) {
         <Link to={`/decks/:${deck.id}`} type="button">
           Done
         </Link>
-        <button type="submit" className="btn btn">
+        <button type="submit" className="btn btn-primary mx-1">
           Submit
         </button>
       </form>
