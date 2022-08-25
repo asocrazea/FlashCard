@@ -4,6 +4,7 @@ function CardForm({ submitHandler, changeHandler, card, deck }) {
     <div>
       <form onSubmit={submitHandler}>
         <div>
+          <h2>Front</h2>
           <label>Front</label>
           <textarea
             className=""
@@ -15,6 +16,7 @@ function CardForm({ submitHandler, changeHandler, card, deck }) {
           ></textarea>
         </div>
         <div>
+          <h2>Back</h2>
           <lable>Back</lable>
           <textarea
             className=""

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-import { Link, useRouteMatch, useHistory } from "react-router-dom";
+import { Link, useRouteMatch, useHistory, useParams } from "react-router-dom";
 import { listDecks } from "../../utils/api";
 function DeckList({ deck }) {
   const history = useHistory();
+  const deckId = useParams().deckId;
   const [decks, setDecks] = useState();
   useEffect(() => {
     listDecks().then(setDecks);
@@ -12,7 +13,7 @@ function DeckList({ deck }) {
     history.push(`/decks/${deck.id}/study`);
   };
   const handleView = () => {
-    history.push(`/deck/${deck.id}`);
+    history.push(`/deck/:${deckId}`);
   };
   return (
     <div>

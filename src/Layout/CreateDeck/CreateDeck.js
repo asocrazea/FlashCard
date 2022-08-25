@@ -19,32 +19,15 @@ function CreateDeck({ updateDecks }) {
     history.push("/");
   };
   return (
-    <div>
-      <nav aria-label="breadcumb">
-        <ul className="breadcrumb">
-          <li className="breadcrumb">
-            <button
-              type="button"
-              underline="hover"
-              color="inherit"
-              to="/"
-              onClick={handleClick}
-            >
-              Home
-            </button>
-          </li>
-          <li className="breadcrumb">
-            <button
-              type="button"
-              underline="hover"
-              color="inherit"
-              to="/decks/new"
-            >
-              Create
-            </button>
-          </li>
-        </ul>
-      </nav>
+    <div className="container">
+      <div className="breadcrumb">
+        <a href="#" to="/" onClick={handleClick}>
+          Home
+        </a>
+        <a href="#" to="">
+          Create Deck
+        </a>
+      </div>
       <div className="container">
         <DeckForm onSubmit={submitForm} />
       </div>

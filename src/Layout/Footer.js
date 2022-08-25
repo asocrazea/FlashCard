@@ -2,9 +2,9 @@ import React from "react";
 
 function Footer() {
   return (
-    <Footer className="jumbotron bg-dark">
+    <footer className="jumbotron bg-dark">
       <div className="container"></div>
-    </Footer>
+    </footer>
   );
 }
 

@@ -10,7 +10,7 @@ function Card(cardId) {
     <div>
       <div className="card">
         <h3>{}</h3>
-        <p>card front</p>
+        <p></p>
         <p> car back</p>
       </div>
     </div>
