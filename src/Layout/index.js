@@ -8,7 +8,7 @@ import CreateDeck from "./CreateDeck/CreateDeck";
 import React from "react";
 import Deck from "./Deck/Deck";
 import EditCard from "./Deck/EditCard";
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
