@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { readDeck, createCard } from "../../utils/api/index";
-import { Link } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import CardForm from "./CardForm";
 function AddCard() {
+  const history = useHistory();
+  const params = useParams().deckId;
   const [card, setCard] = useState();
   const [deck, setDeck] = useState();
   const submitHandler = () => {
@@ -16,29 +18,31 @@ function AddCard() {
     }
     getDeck();
   }, []);
+  const handleClick = () => {
+    history.push("/");
+  };
   return (
     <div>
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb">
-          <li className="breadcrumb">
-            <Link to="/"></Link>Home
-          </li>
-          <li className="breadcrumb">
-            <Link to="/decks/:deckId/"></Link>
-            {deck.name}
-          </li>
-          <li className="breadcrumb">
-            <Link to="/decks/:deckId/cards/new"></Link>AddCard
-          </li>
-        </ol>
-      </nav>
+      <div className="breadcrumb">
+        <a href="#" to="/" onClick={handleClick}>
+          Home
+        </a>
+        <a href="#" to="/decks/deckId">
+          {deck.name}
+        </a>
+        <a href="#" to="/decks/:deckId/cards/new">
+          Add Card
+        </a>
+      </div>
       <div>
         <CardForm submitHandler={submitHandler} card={card} deck={deck} />
       </div>
       <div>
-        <button type="button"></button>
-        <button type="submit" className="btn">
-          Add
+        <button type="button" className="btn btn-secondary">
+          Cancel
+        </button>
+        <button type="submit" className="btn btn-primary mx-1">
+          Add Card
         </button>
       </div>
     </div>
