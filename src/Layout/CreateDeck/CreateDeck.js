@@ -1,9 +1,13 @@
 import DeckForm from "../Deck/DeckForm";
 
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useRouteMatch } from "react-router-dom";
 import { createDeck } from "../../utils/api/index.js";
+import Breadcrumb from "../Breadcrumb";
+
 function CreateDeck({ updateDecks }) {
+  const { params } = useRouteMatch;
+  const [currentDeck, setCurrentDeck] = useState({});
   const [newDeck, setNewDeck] = useState({ name: "", description: "" });
   const history = useHistory();
 
@@ -20,14 +24,7 @@ function CreateDeck({ updateDecks }) {
   };
   return (
     <div className="container">
-      <div className="breadcrumb">
-        <a href="#" to="/" onClick={handleClick}>
-          Home
-        </a>
-        <a href="#" to="">
-          Create Deck
-        </a>
-      </div>
+      <Breadcrumb middleText={"Create Deck"} />
       <div className="container">
         <DeckForm onSubmit={submitForm} />
       </div>

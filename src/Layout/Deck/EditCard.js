@@ -1,37 +1,68 @@
-import React from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useHistory, useRouteMatch } from "react-router-dom";
+import Breadcrumb from "../Breadcrumb";
 import CardForm from "./CardForm";
+import { readCard, readDeck, updateCard } from "../../utils/api/index";
 
 function EditCard() {
-  const deckId = useParams().deckId;
+  const [currentDeck, setCurrentDeck] = useState({});
+  const [editCardData, setEditCardData] = useState({});
+  const { params } = useRouteMatch();
   const history = useHistory();
-  const handleClick = () => {
-    history.push("/");
+
+  // API calls to fetch current deck, then fetch current card
+  useEffect(() => {
+    const abortController = new AbortController();
+    async function getDeck() {
+      try {
+        const fetchedDeck = await readDeck(params.deckId);
+        setCurrentDeck(fetchedDeck);
+
+        const fetchedCard = await readCard(params.cardId);
+        setEditCardData(fetchedCard);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getDeck();
+    return () => abortController.abort();
+  }, [params.deckId, params.cardId]);
+
+  // Handlers for submitting, editing, and cancelling on the card form
+  const handleEditCardSubmit = async (event) => {
+    event.preventDefault();
+    await updateCard(editCardData);
+    history.push(`/decks/${params.deckId}`);
+  };
+
+  const handleEditCardChange = (event) => {
+    event.preventDefault();
+    setEditCardData({
+      ...editCardData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleEditCardCancel = (event) => {
+    event.preventDefault();
+    history.push(`/decks/${params.deckId}`);
   };
 
   return (
-    <div>
-      <div>
-        <a href="/" to="/" onClick={handleClick}>
-          Home
-        </a>
-
-        <a href="#" to="">
-          Edit Deck {deckId}
-        </a>
-      </div>
-      <h1>Edit Deck</h1>
-      <div>
-        <CardForm />
-      </div>
-      <div>
-        <button type="submit" className="btn btn-secondary">
-          {" "}
-          Cancel
-        </button>
-        <button type="submit" className="btn btn-primary mx-1"></button>
-      </div>
-    </div>
+    <>
+      <Breadcrumb
+        middleText={`Deck ${currentDeck.name}`}
+        deckId={currentDeck.id}
+        finalText={`Edit Card ${params.cardId}`}
+      />
+      <h3>{currentDeck.name}: Edit Card</h3>
+      <CardForm
+        cardData={editCardData}
+        handleChange={handleEditCardChange}
+        handleSubmit={handleEditCardSubmit}
+        handleCancel={handleEditCardCancel}
+      />
+    </>
   );
 }
 export default EditCard;

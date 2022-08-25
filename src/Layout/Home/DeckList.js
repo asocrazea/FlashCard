@@ -10,10 +10,10 @@ function DeckList({ deck }) {
     listDecks().then(setDecks);
   }, []);
   const handleStudy = () => {
-    history.push(`/decks/${deck.id}/study`);
+    history.push(`/decks/${deckId}/study`);
   };
   const handleView = () => {
-    history.push(`/deck/:${deckId}`);
+    history.push(`/decks/${deckId}`);
   };
   return (
     <div>
