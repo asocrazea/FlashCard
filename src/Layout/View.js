@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { listDecks } from "../utils/api/index";
 import DeckList from "./Deck/DeckList";
 
-function View({}) {
+function View() {
   const [decks, setDecks] = useState([]);
   useEffect(() => {
     listDecks().then(setDecks);

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { createCard, readDeck } from "../../utils/api";
-import Breadcrumb from "../Breadcrumb";
+import { createCard, readDeck } from "../utils/api";
+import Breadcrumb from "./Breadcrumb";
 import CardForm from "./CardForm";
 
 // Component with the state, handlers, and form component for creating the front and back of a study card

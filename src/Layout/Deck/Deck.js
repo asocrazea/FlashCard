@@ -89,7 +89,7 @@ function Deck(deckId) {
     </div>
   ));
 
-  // HTML for rendering deck info
+  // for rendering deck info
   const selectedDeck = (
     <div className="container column">
       <div className="column">
@@ -137,12 +137,12 @@ function Deck(deckId) {
   );
 
   return (
-    <>
+    <div>
       <Breadcrumb middleText={currentDeck.name} />
       {selectedDeck}
       <h2>Cards</h2>
       <ul>{cardList}</ul>
-    </>
+    </div>
   );
 }
 

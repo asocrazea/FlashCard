@@ -1,28 +1,55 @@
-import { Link } from "react-router-dom";
 import React from "react";
 
-function DeckForm({ submitForm, deck }) {
+// Component that renders the form for editing or creating a new deck
+
+export default function DeckForm({
+  deckData,
+  handleCancel,
+  handleSubmit,
+  handleChange,
+}) {
   return (
-    <div className="card-box">
-      <form onSubmit={submitForm}>
-        <div className="">
-          <label> Name </label>
-          <input type="text" id="DeckName" placeholder="Name of Deck" name="" />
-          <label>Description</label>
-        </div>
-        <div className="card">
-          <textarea
-            id=""
-            placeholder="Add a description of the deck"
-            name=""
-          ></textarea>
-        </div>
-        <Link to={"/"} type="button" className=""></Link>
-        <button type="submit" className="btn btn-primary mx-1">
-          Submit
-        </button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div className="mb-3">
+        <label htmlFor="name" className="form-label">
+          Name
+        </label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          className="form-control"
+          value={deckData.name}
+          onChange={handleChange}
+          placeholder="Enter the deck name here"
+          required
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="description" className="form-label">
+          Description
+        </label>
+        <textarea
+          id="description"
+          name="description"
+          className="form-control"
+          value={deckData.description}
+          onChange={handleChange}
+          placeholder="Enter the deck description here"
+          rows="4"
+          required
+        />
+      </div>
+      <button onClick={handleCancel} className="btn btn-secondary">
+        Cancel
+      </button>
+      <button
+        type="submit"
+        className="btn btn-primary"
+        style={{ margin: "0 10px" }}
+      >
+        Submit
+      </button>
+    </form>
   );
 }
-export default DeckForm;

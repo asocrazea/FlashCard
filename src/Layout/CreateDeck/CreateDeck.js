@@ -11,6 +11,14 @@ function CreateDeck({ updateDecks }) {
   const [newDeck, setNewDeck] = useState({ name: "", description: "" });
   const history = useHistory();
 
+  const initialForm = {
+    name: "",
+    description: "",
+  };
+  const [createDeckFormData, setCreateDeckFormData] = useState({
+    ...initialForm,
+  });
+
   const [deck, setDeck] = useState();
   const submitForm = async (event) => {
     event.preventDefault();
@@ -18,15 +26,35 @@ function CreateDeck({ updateDecks }) {
     history.push(`/decks/${response.id}`);
     updateDecks(1);
   };
+  const handleCreateDeckSubmit = async (event) => {
+    event.preventDefault();
+    const newDeck = await createDeck(createDeckFormData);
+    const newDeckId = newDeck.id;
+    history.push(`/decks/${newDeckId}`);
+  };
 
-  const handleClick = () => {
+  const handleCreateDeckCancel = (event) => {
+    event.preventDefault();
     history.push("/");
   };
+
+  const handleCreateDeckChange = (event) => {
+    setCreateDeckFormData({
+      createDeckFormData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   return (
     <div className="container">
       <Breadcrumb middleText={"Create Deck"} />
       <div className="container">
-        <DeckForm onSubmit={submitForm} />
+        <DeckForm
+          handleCancel={handleCreateDeckCancel}
+          handleChange={handleCreateDeckChange}
+          handleSubmit={handleCreateDeckSubmit}
+          deckData={createDeckFormData}
+        />
       </div>
     </div>
   );

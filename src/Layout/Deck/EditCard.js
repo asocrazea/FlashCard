@@ -49,7 +49,7 @@ function EditCard() {
   };
 
   return (
-    <>
+    <div>
       <Breadcrumb
         middleText={`Deck ${currentDeck.name}`}
         deckId={currentDeck.id}
@@ -62,7 +62,7 @@ function EditCard() {
         handleSubmit={handleEditCardSubmit}
         handleCancel={handleEditCardCancel}
       />
-    </>
+    </div>
   );
 }
 export default EditCard;
