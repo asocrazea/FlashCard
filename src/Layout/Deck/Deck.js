@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, Link, useRouteMatch } from "react-router-dom";
-import { readDeck, deleteDeck, deleteCard } from "../../utils/api";
+import { readDeck, deleteDeck, deleteCard } from "../../utils/api/index";
 import Breadcrumb from "../Breadcrumb";
 
 function Deck(deckId) {
@@ -56,7 +56,7 @@ function Deck(deckId) {
     }
   };
 
-  // HTML for rendering list of cards, both sides at once
+  // for rendering list of cards, both sides at once
   const cardList = currentDeck.cards.map((card) => (
     <div key={card.id} className="card container">
       <li className="row">
@@ -77,6 +77,7 @@ function Deck(deckId) {
             >
               Edit
             </Link>
+
             <button
               className="btn btn-danger"
               onClick={() => handleDeleteCard(card.id)}

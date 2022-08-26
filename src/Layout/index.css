@@ -1,6 +1,7 @@
 .container {
   display: block;
   justify-items: center;
+  border: 3px
   ;
 }
 .view {
@@ -26,32 +27,10 @@
   transform-style: preserve-3d;
   padding: 5px;
 }
-.text-box {
-  
-}
+
 .create-card {
   display: list-item;
   display: table-column;
   max-width: min-content;
 }
 
-.breadcrumb {
-  display: inline-block;
-  box-shadow: 0 0 5px 1px rgb(10, 1, 27);
-  border-radius:  5px;
-  width: 500px;
-  background-color: #eee;
-
-}
-.breadcrumb a {
-  display: block;
-  text-decoration: none;
-  padding: 10px 10px 10px 30px;
-  float: left;
-  color: blue;
-}
-.breadcrumb a+a::before {
-  padding: 8px;
-  color: black;
-  content: "/\00a0";
-}

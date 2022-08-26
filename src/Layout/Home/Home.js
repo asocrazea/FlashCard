@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DeckList from "./DeckList";
 import { Link } from "react-router-dom";
-import { listDecks, updateDeck } from "../../utils/api";
+import { listDecks, updateDeck } from "../../utils/api/index";
 
 function Home({ updateDecks, deckLength }) {
   const [decks, setDecks] = useState([]);
@@ -50,35 +50,3 @@ function Home({ updateDecks, deckLength }) {
 }
 
 export default Home;
-
-/*import React, { useEffect, useState } from "react";
-
-import { Link, useHistory } from "react-router-dom";
-import { listDecks } from "../../utils/api";
-import View from "../View";
-
-function Home({}) {
-  const history = useHistory();
-  const [decks, setDecks] = useState();
-  useEffect(() => {
-    listDecks().then(setDecks);
-  }, []);
-  const handleButtonClick = () => {
-    history.push("/decks/new");
-  };
-
-  return (
-    <div className="container">
-      <Link to="/deck/new">
-        <button className="btn btn-secondary " onClick={handleButtonClick}>
-          + Create Deck
-        </button>
-      </Link>
-      <h1 className="title">Decks</h1>
-      <div>
-        <View />
-      </div>
-    </div>
-  );
-}
-export default Home;*/

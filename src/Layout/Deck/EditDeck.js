@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouteMatch, useHistory } from "react-router-dom";
-import { readDeck, updateDeck } from "../../utils/api";
+import { readDeck, updateDeck } from "../../utils/api/index";
 import Breadcrumb from "../Breadcrumb";
 
 import DeckForm from "./DeckForm";

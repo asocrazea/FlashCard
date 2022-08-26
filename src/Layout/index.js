@@ -6,7 +6,7 @@ import CreateDeck from "./CreateDeck/CreateDeck";
 import React, { useState } from "react";
 import Deck from "./Deck/Deck";
 import EditCard from "./Deck/EditCard";
-import CardList from "./Study/CardList";
+import Study from "./Study/Study";
 import AddCard from "./Deck/AddCard";
 import { Route, Switch } from "react-router-dom";
 
@@ -30,9 +30,9 @@ function Layout() {
           <EditDeck />
         </Route>
         <Route exact path="/decks/:deckId/study">
-          <CardList />
+          <Study />
         </Route>
-        <Route exact path="/decks/deckId/cards/cardId/edit">
+        <Route exact path="/decks/:deckId/cards/:cardId/edit">
           <EditCard />
         </Route>
         <Route exact path="/decks/:deckId/cards/new">

@@ -1,42 +1,55 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-function CardForm({ submitHandler, changeHandler, card, deck }) {
+// Component that renders the form for editing or creating a new card
+
+export default function CardForm({
+  handleCancel,
+  handleSubmit,
+  handleChange,
+  cardData,
+}) {
   return (
-    <div>
-      <form onSubmit={submitHandler}>
-        <div>
-          <h2>Front</h2>
-          <label>Front</label>
-          <textarea
-            className=""
-            id="cardFront"
-            placeHolder="This is where you type in Term"
-            name="front"
-            value={card.front}
-            onChange={changeHandler}
-          ></textarea>
-        </div>
-        <div>
-          <h2>Back</h2>
-          <lable>Back</lable>
-          <textarea
-            className=""
-            id="cardBack"
-            placeHolder="add definition here"
-            name="back"
-            value={card.back}
-            onChange={changeHandler}
-          ></textarea>
-        </div>
-        <Link to={`/decks/:${deck.id}`} type="button">
-          Done
-        </Link>
-        <button type="submit" className="btn btn-primary mx-1">
-          Submit
-        </button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div className="mb-3">
+        <label htmlFor="front" className="form-label">
+          Front
+        </label>
+        <textarea
+          id="front"
+          name="front"
+          className="form-control"
+          value={cardData.front}
+          onChange={handleChange}
+          placeholder="Enter the contents of the front of the card here"
+          rows="4"
+          required
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="back" className="form-label">
+          Back
+        </label>
+        <textarea
+          id="back"
+          name="back"
+          className="form-control"
+          value={cardData.back}
+          onChange={handleChange}
+          placeholder="Enter the contents of the back of the card here"
+          rows="4"
+          required
+        />
+      </div>
+      <button onClick={handleCancel} className="btn btn-secondary">
+        Cancel
+      </button>
+      <button
+        type="submit"
+        className="btn btn-primary"
+        style={{ margin: "0 10px" }}
+      >
+        Save
+      </button>
+    </form>
   );
 }
-export default CardForm;
